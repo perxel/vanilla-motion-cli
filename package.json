@@ -1,0 +1,38 @@
+{
+  "name": "vanilla-motion",
+  "version": "0.1.0",
+  "description": "Copy a Vanilla Motion effect's source into your project: npx vanilla-motion add <slug>",
+  "type": "module",
+  "bin": {
+    "vanilla-motion": "bin/vanilla-motion.mjs"
+  },
+  "files": [
+    "README.md",
+    "bin"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "homepage": "https://vanilla-motion.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/perxel/vanilla-motion-cli.git"
+  },
+  "keywords": [
+    "animation",
+    "motion",
+    "effects",
+    "webgl",
+    "css",
+    "cli"
+  ],
+  "author": "Perxel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/perxel/vanilla-motion-cli/issues"
+  },
+  "packageManager": "pnpm@10.22.0"
+}
