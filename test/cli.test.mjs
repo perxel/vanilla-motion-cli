@@ -69,3 +69,10 @@ test('list', async () => {
 test('packageManager defaults to npm', () => {
   assert.equal(packageManager(fs.mkdtempSync(path.join(os.tmpdir(), 'vm-pm-'))), 'npm install');
 });
+
+test('--version prints the package version', async () => {
+  const out = [];
+  await main(['--version'], { log: (s) => out.push(s) });
+  const pkg = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
+  assert.deepEqual(out, [pkg.version]);
+});

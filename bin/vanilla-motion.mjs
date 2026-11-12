@@ -12,6 +12,7 @@ const HELP = `vanilla-motion: copy an effect's source into your project
 Usage
   npx vanilla-motion add <slug> [<slug>…] [--dir <path>] [--force]
   npx vanilla-motion list
+  npx vanilla-motion --version
 
 Options
   --dir <path>       where effects go (default ./vanilla-motion); each one in <path>/<slug>/
@@ -21,10 +22,11 @@ Options
 Browse the effects at https://vanilla-motion.com`;
 
 export function parseArgs(argv) {
-  const opts = { command: null, slugs: [], dir: 'vanilla-motion', force: false, registry: DEFAULT_REGISTRY, help: false };
+  const opts = { command: null, slugs: [], dir: 'vanilla-motion', force: false, registry: DEFAULT_REGISTRY, help: false, version: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--help' || a === '-h') opts.help = true;
+    else if (a === '--version' || a === '-v') opts.version = true;
     else if (a === '--force' || a === '-f') opts.force = true;
     else if (a === '--dir' || a === '--registry') {
       const v = argv[++i];
@@ -87,6 +89,11 @@ function usage(item, target, cwd) {
 
 export async function main(argv, { cwd = process.cwd(), log = console.log } = {}) {
   const opts = parseArgs(argv);
+  if (opts.version) {
+    const pkg = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
+    log(pkg.version);
+    return 0;
+  }
   if (opts.help || !opts.command) {
     log(HELP);
     return 0;
