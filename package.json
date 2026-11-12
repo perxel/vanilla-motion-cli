@@ -1,6 +1,6 @@
 {
   "name": "vanilla-motion",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Copy a Vanilla Motion effect's source into your project: npx vanilla-motion add <slug>",
   "type": "module",
   "bin": {
