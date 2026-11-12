@@ -33,6 +33,5 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/perxel/vanilla-motion-cli/issues"
-  },
-  "packageManager": "pnpm@10.22.0"
+  }
 }
